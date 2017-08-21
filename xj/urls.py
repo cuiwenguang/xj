@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^login/$',
         django.contrib.auth.views.login,
         {
-            'template_name': 'login.html',
+            'template_name': 'app/login.html',
             'authentication_form': app.forms.BootstrapAuthenticationForm,
             'extra_context':
             {
