@@ -1,1 +1,5 @@
 Django=1.11.4
+Pillow
+qrcode
+numpy
+opencv-python

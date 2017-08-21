@@ -124,3 +124,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+QRCODE_PATH = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static', 'qrimage']))
+
