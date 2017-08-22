@@ -127,3 +127,7 @@ STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 # face cascade classifier 
 FACE_CLASSIFIER = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['etc', 'haarcascades', 'haarcascade_frontalface_default.xml']))
+# qrcode path
+QRCODE_PATH = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static', 'qrimage']))
+
+
