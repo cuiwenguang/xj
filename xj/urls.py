@@ -20,6 +20,10 @@ urlpatterns = [
     url(r'^api/signin',app.api.sign_in),
     url(r'^api/signout', app.api.sign_out),
     url(r'^api/qrcode', app.api.qrcode_generate),
+
+    #mobile url
+    url(r'mobile/detail', app.views.mobile_detail, name="mobile_detail"),
+
     # web url
     url(r'^$', app.views.home, name='home'),
     url(r'^contact$', app.views.contact, name='contact'),

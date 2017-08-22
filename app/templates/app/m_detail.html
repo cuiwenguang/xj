@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>XXX人员详细信息</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/mobile.css' %}" />
+</head>
+
+<body>
+    <div class="page-group">
+        <div class="page page-current">
+            <div class="content">
+                <div class="content-padded">
+                    <div class="row">
+                        <div class="col-40">
+                            <img src="{% static 'app/images/timg.jpg' %}" alt="" class="header-image">
+                        </div>
+                        <div class="col-60">
+                            <div><label>姓名:</label> <span>阿拉木汗</span></div>
+                            <div><label>身份证:</label> <span>xxxxxxxxxxxxxxxxx</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-tab">
+                    <a href="#tab1" class="tab-link active button">本人</a>
+                    <a href="#tab2" class="tab-link button">配偶</a>
+                    <a href="#tab3" class="tab-link button">子女</a>
+                </div>
+                    <div class="tabs">
+                        <div id="tab1" class="tab active">
+                            <div class="content-block">
+                                <div class="content-block-title">基本信息</div>
+                                <div class="list-block contacts-block">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title">姓名</div>
+                                                <div class="item-after">阿拉木汗</div>
+                                            </div>
+                                        </li>
+                                        <li class="item-content">
+                                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title">出生日期</div>
+                                                <div class="item-after">1985-01-12</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab">
+                            <div class="content-block">
+                                <p>This is tab 2 content</p>
+                            </div>
+                        </div>
+                        <div id="tab3" class="tab">
+                            <div class="content-block">
+                                <p>This is tab 3 content</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+</body>
+
+</html>

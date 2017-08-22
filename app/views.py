@@ -46,3 +46,10 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+
+
+def mobile_detail(request):
+    return render(
+        request,
+        "app/m_detail.html"
+    )
