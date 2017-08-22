@@ -38,9 +38,10 @@ class PersonnelProfile(models.Model):
     political_face = models.CharField(max_length=50, null=True, blank=True)       # 政治面貌
     marriage = models.CharField(max_length=50, null=True, blank=True)            # 婚姻情况
     health = models.CharField(max_length=500, null=True, blank=True)               # 健康状况
-    note = models.CharField(max_length=255, null=True, blank=True)
+    note = models.CharField(max_length=255, null=True, blank=True)         # 暂时放的流入时间
     ID_photo = models.CharField(max_length=500, null=True, blank=True, default='')            # 身份证照片
     birth_date = models.CharField(max_length=255, null=True, blank=True, default='')         # 出生日期
+    native_place = models.CharField(max_length=255, null=True, blank=True, default='')         # 籍贯
 
     gender = models.CharField(max_length=50, null=True, blank=True, default='')      # 性别
     is_minimum_security = models.CharField(max_length=50, null=True, blank=True, default='')  # 是否有低保
@@ -61,6 +62,10 @@ class PersonnelMigration(models.Model):
     input_user_id = models.IntegerField(default=0)  # 录入人
     input_user_name = models.CharField(max_length=255)  # 录入人
     create_date = models.DateTimeField(default=timezone.now)  # 创建日期
+    outflow_date = models.CharField(max_length=255, null=True, blank=True, default='')   # 流出时间
+    inflow_date = models.CharField(max_length=255, null=True, blank=True, default='')    # 流入时间
+    outflow_address = models.CharField(max_length=255, null=True, blank=True, default='')  # 流出地
+    inflow_address = models.CharField(max_length=255, null=True, blank=True, default='')  # 流入地
 
 class PersonnelBrowseLog(models.Model):
     user_id = models.IntegerField(default=0)

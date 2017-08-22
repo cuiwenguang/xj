@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url="/login/")
 @csrf_exempt
-def get_profile(request, pid):
+def get_detail(request, pid):
     family_master = None
     family_members = []
     per = PersonnelProfile.objects.get(personnel_uuid=pid)

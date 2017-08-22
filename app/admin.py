@@ -2,23 +2,18 @@ from app.models import *
 from django.shortcuts import HttpResponse
 import uuid
 import logging
+import xlrd
 
 def import_excel():
-    import xlrd
-    from pprint import pprint
     file = 'app/xj.xls'
     wb = xlrd.open_workbook(filename=file)
     wsh = wb.sheet_by_name('Sheet1')
-
     # 获取行数
     nrows = wsh.nrows
     # 获取列数
     ncols = wsh.ncols
     print("nrows %d, ncols %d" % (nrows, ncols))
-    # 获取第一行第一列数据
-    cell_value = wsh.cell_value(1, 0) #wsh.cell(1, 0).value
-    a = wsh.row_values(28)
-    c = 1
+    # 获取第一行第一列数据 cell_value = wsh.cell_value(1, 0) #wsh.cell(1, 0).value
     # 获取各行数据
     for i in range(1, nrows):
         row_data = wsh.row_values(i)
@@ -293,12 +288,65 @@ def import_excel():
             logging.info("row num = " + str(i))
 
 
-#import_excel()
+def update_data():
+    file = 'app/xj.xls'
+    wb = xlrd.open_workbook(filename=file)
+    wsh = wb.sheet_by_name('Sheet1')
+    # 获取行数
+    nrows = wsh.nrows
+    # 获取列数
+    ncols = wsh.ncols
+    print("nrows %d, ncols %d" % (nrows, ncols))
+    # 获取第一行第一列数据 cell_value = wsh.cell_value(1, 0) #wsh.cell(1, 0).value
+    print(wsh.row_values(100))
+    # 获取各行数据
+    for i in range(1, nrows):
+        row_data = wsh.row_values(i)
+        per = PersonnelProfile.objects.filter(name=row_data[2], ID_number=row_data[10]).first()
+        if per is not None:
+            per.birth_date = row_data[10]     # 出生年月
+            per.native_place = row_data[8]   # 籍贯
+            per.save()
+            if row_data[13] != '': #  上一次流出地
+                pm = PersonnelMigration()
+                pm.personnel_uuid = per.personnel_uuid  # 人员ID
+                pm.input_location = per.input_location  # 录入地
+                pm.input_user_id = per.input_user_id  # 录入人
+                pm.input_user_name = per.input_user_name  # 录入人
+                pm.outflow_date = row_data[12]  # 流出时间
+                #inflow_date = models.CharField(max_length=255, null=True, blank=True, default='')  # 流入时间
+                pm.outflow_address = '新疆' # 流出地
+                pm.inflow_address = row_data[13]  # 流入地
+                pm.save()
 
-def get_all(request):
-    v = 1
-    #a = UserToken.objects.create(token="abc")
-    c = 1
-    import_excel()
+                if row_data[14] != '':
+                    pm1 = PersonnelMigration()
+                    pm1.personnel_uuid = per.personnel_uuid  # 人员ID
+                    pm1.input_location = per.input_location  # 录入地
+                    pm1.input_user_id = per.input_user_id  # 录入人
+                    pm1.input_user_name = per.input_user_name  # 录入人
+                    #pm1.outflow_date = row_data[12]  # 流出时间
+                    pm1.inflow_date = row_data[14]  # 流入时间
+                    pm1.outflow_address = row_data[13]  # 流出地
+                    pm1.inflow_address = '陕西'  # 流入地
+                    pm1.save()
+            else:
+                if row_data[14] != '':
+                    pm1 = PersonnelMigration()
+                    pm1.personnel_uuid = per.personnel_uuid  # 人员ID
+                    pm1.input_location = per.input_location  # 录入地
+                    pm1.input_user_id = per.input_user_id  # 录入人
+                    pm1.input_user_name = per.input_user_name  # 录入人
+                    pm1.outflow_date = row_data[12]  # 流出时间
+                    pm1.inflow_date = row_data[14]  # 流入时间
+                    pm1.outflow_address = '新疆'  # 流出地
+                    pm1.inflow_address = '陕西'  # 流入地
+                    pm1.save()
+
+
+def import_data(request):
+
+    #import_excel()
+    update_data()
     return HttpResponse("ok")
 
