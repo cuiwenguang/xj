@@ -1,0 +1,41 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<style>
+.lead{font-size: 14px; margin-top: 5px; margin-bottom: 5px}
+</style>
+<div class="jumbotron" style="padding-top: 10px; padding-bottom: 10px">
+    {% if family_master == None %}
+        <p class="lead">查无此人！</p>
+        {% else %}
+        <h4>姓名: {{ family_master.name }}</h4>
+        <p class="lead">性别：{{ family_master.gender }}
+            民族：{{ family_master.nation }}</p>
+        <p class="lead">出生：{{ family_master.birth_date }}</p>
+        <p class="lead">地址：{{ family_master.ID_address }}</p>
+        <p class="lead">身份证号：{{ family_master.ID_number }}</p>
+        <div>
+        <p class="lead">出生：{{ family_master.birth_date }}</p>
+        <p class="lead">地址：{{ family_master.ID_address }}</p>
+        <p class="lead">身份证号：{{ family_master.ID_number }}</p>
+        </div>
+        <p><a  class="btn btn-primary btn-large">更多 &raquo;</a></p>
+    {% endif %}
+</div>
+
+{% for member in family_members %}
+<div class="jumbotron" style="padding-top: 10px; padding-bottom: 10px">
+
+    <h4>{{ member.family_relation }}: {{ member.name }}</h4>
+    <p class="lead">性别：{% if member.gender == Ture %}
+        男 {% else %} 女 {% endif %}
+        民族：{{ member.nation }}</p>
+    <p class="lead">出生：</p>
+    <p class="lead">地址：{{ member.ID_address }}</p>
+    <p class="lead">身份证号：{{ member.ID_number }}</p>
+    <p><a class="btn btn-default">更多 &raquo;</a></p>
+
+</div>
+{% endfor %}
+{% endblock %}
+
