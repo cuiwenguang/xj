@@ -2,10 +2,12 @@
 Definition of views.
 """
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
+
+from .validate import detect_face
 
 def home(request):
     """Renders the home page."""
@@ -44,3 +46,8 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+
+def post_image(request):
+    image = request.FILES['imgFace']
+    result = detect_face(image)
+    redirect('about')
