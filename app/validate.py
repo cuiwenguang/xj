@@ -23,5 +23,5 @@ def detect_face(image_file):
 
 def draw_face(image_file):
     faces = detect_face(image_file)
-    pass
+
     

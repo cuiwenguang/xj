@@ -23,7 +23,6 @@ urlpatterns = [
     # web url
     url(r'^$', app.views.home, name='home'),
     url(r'^contact$', app.views.contact, name='contact'),
-    url(r'face', app.views.post_image, name="face"),
     url(r'^about', app.views.about, name='about'),
     url(r'^login/$',
         django.contrib.auth.views.login,

@@ -35,9 +35,16 @@ def sign_out(request):
 def qrcode_generate(request):
     '''测试生成二维码'''
     try:
-        data = "sdfasasdsdds" # 用户uuid
+        data = {
+            "id": "uuid",
+            "name": "name",
+            "idcard": "idcard",
+            "photo": "photo"
+        }
         generate(data)
         return JsonResponse({"state": 200, "msg": "完成", "data": "/static/qrimage/"+data +".jpg"})
     except:
         return JsonResponse({"state":500, "msg": "发生错误", "data": None})
+
+
 

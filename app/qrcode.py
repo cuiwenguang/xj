@@ -1,3 +1,4 @@
+import json
 import uuid
 import  qrcode
 
@@ -12,7 +13,7 @@ def generate(content):
         box_size=10,
         border=4
     )
-    img = qr.make(content)
+    img = qr.make(json.dumps(content))
     img.save(path)
     # 二维码路径保存回数据库
 
