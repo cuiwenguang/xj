@@ -47,12 +47,3 @@ def about(request):
         }
     )
 
-<<<<<<< HEAD
-
-def mobile_detail(request):
-    return render(
-        request,
-        "app/m_detail.html"
-    )
-=======
->>>>>>> 9a0e76a052474c0ab54527dffd0eb6d364c2cc21
