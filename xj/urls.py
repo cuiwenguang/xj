@@ -9,7 +9,8 @@ import django.contrib.auth.views
 import app.forms
 import app.api
 import app.views
-
+import app.personnel
+import app.admin
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
 # from django.contrib import admin
@@ -46,5 +47,12 @@ urlpatterns = [
             'next_page': '/',
         },
         name='logout'),
+    url(r'^personnel/detail/(?P<pid>.+)$', app.personnel.get_detail, name='get_detail'),
+    url(r'^data/import', app.admin.import_data, name='import_data'),
+    # Uncomment the admin/doc line below to enable admin documentation:
+    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    # Uncomment the next line to enable the admin:
+    # url(r'^admin/', include(admin.site.urls)),
 
 ]
