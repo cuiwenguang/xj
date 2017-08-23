@@ -6,7 +6,8 @@ from xj.settings import QRCODE_PATH
 
 def generate(content):
     '''生成二维码的方法'''
-    path = ''.join([QRCODE_PATH, content, '.jpg'])
+    file_name = '_'.join([content["name"], content["id"]])
+    path = ''.join([QRCODE_PATH, file_name, '.jpg'])
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,

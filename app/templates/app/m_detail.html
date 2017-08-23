@@ -19,33 +19,30 @@
 <body>
     <div class="page-group">
         <div class="page page-current">
+                <header class="bar bar-nav">
+                        <a class="icon icon-left pull-left"></a>
+                        <a class="icon icon-refresh pull-right"></a>
+                        <h1 class='title'>标签页</h1>
+                      </header>
             <div class="content">
-                <div class="content-padded">
-                    <div class="row">
-                        <div class="col-40">
-                            <img src="{% static 'app/images/timg.jpg' %}" alt="" class="header-image">
-                        </div>
-                        <div class="col-60">
-                            <div><label>姓名:</label> <span>阿拉木汗</span></div>
-                            <div><label>身份证:</label> <span>xxxxxxxxxxxxxxxxx</span></div>
-                        </div>
-                    </div>
-                </div>
                 <div class="buttons-tab">
-                    <a href="#tab1" class="tab-link active button">本人</a>
-                    <a href="#tab2" class="tab-link button">配偶</a>
-                    <a href="#tab3" class="tab-link button">子女</a>
-                </div>
+                        <a href="#tab1" class="tab-link active button">本人</a>
+                        <a href="#tab2" class="tab-link button">配偶</a>
+                        <a href="#tab3" class="tab-link button">子女</a>
+                        <a href="#tab3" class="tab-link button">亲戚</a>
+                    </div>
                     <div class="tabs">
                         <div id="tab1" class="tab active">
                             <div class="content-block">
-                                <div class="content-block-title">基本信息</div>
                                 <div class="list-block contacts-block">
                                     <ul>
                                         <li class="item-content">
                                             <div class="item-media"><i class="icon icon-f7"></i></div>
                                             <div class="item-inner">
-                                                <div class="item-title">姓名</div>
+                                                <div class="item-title">
+                                                    <img src="{% static 'app/images/timg.jpg'%}" class="header-image">
+                                                    <span>xxxxxxxx</span>
+                                                </div>
                                                 <div class="item-after">阿拉木汗</div>
                                             </div>
                                         </li>
@@ -71,7 +68,6 @@
                             </div>
                         </div>
                     </div>
-                
             </div>
         </div>
     </div>
