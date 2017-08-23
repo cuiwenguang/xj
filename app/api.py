@@ -44,7 +44,7 @@ def qrcode_generate(request):
         generate(data)
         return JsonResponse({"state": 200, "msg": "完成", "data": "/static/qrimage/"+data +".jpg"})
     except:
-        return JsonResponse({"state":500, "msg": "发生错误", "data": None})
+        return JsonResponse({"state": 500, "msg": "发生错误", "data": None})
 
 
 

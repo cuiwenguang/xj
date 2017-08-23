@@ -74,9 +74,9 @@
                        <li>
                     <div class="item-content">
                       <div class="item-inner">
-                        <div class="item-title label">出生</div>
+                        <div class="item-title label">籍贯</div>
                         <div class="item-input">
-                         {{ family_master.birth_date }}
+                          {{ family_master.native_place }}
                         </div>
                       </div>
                     </div>
@@ -84,9 +84,9 @@
                        <li>
                     <div class="item-content">
                       <div class="item-inner">
-                        <div class="item-title label">地址</div>
+                        <div class="item-title label">出生</div>
                         <div class="item-input">
-                          {{ family_master.ID_address }}
+                         {{ family_master.birth_date }}
                         </div>
                       </div>
                     </div>
@@ -101,12 +101,32 @@
                       </div>
                     </div>
                   </li>
+                       <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">身份证地址</div>
+                        <div class="item-input">
+                          {{ family_master.ID_address }}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                         <li>
                     <div class="item-content">
                       <div class="item-inner">
                         <div class="item-title label">联系电话</div>
                         <div class="item-input">
                           {{ family_master.phone_number }}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                       <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">登记时间</div>
+                        <div class="item-input">
+                          {{ family_master.note }}
                         </div>
                       </div>
                     </div>
