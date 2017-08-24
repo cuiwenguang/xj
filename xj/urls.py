@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^api/signin',app.api.sign_in),
     url(r'^api/signout', app.api.sign_out),
     url(r'^api/qrcode', app.api.qrcode_generate),
-
+    url(r'^api/analysis', app.api.qrcode_analysis),
     #mobile url
     url(r'mobile/detail', app.views.mobile_detail, name="mobile_detail"),
 

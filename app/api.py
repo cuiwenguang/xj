@@ -2,7 +2,7 @@
 import json
 from django.http.response import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login,logout
-from .qrcode import generate
+from .qrcode import generate,analysis
 from app.models import PersonnelProfile
 from django.views.decorators.csrf import csrf_exempt
 
@@ -52,3 +52,10 @@ def qrcode_generate(request):
     except Exception as e:
         return HttpResponse(e)
 
+def qrcode_analysis(request):
+    '''测试解析二维码'''
+    try:
+        data = analysis()
+        return JsonResponse({"state": 200, "msg": "完成", "data": data})
+    except Exception as e:
+        return HttpResponse(e)
