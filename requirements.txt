@@ -3,4 +3,4 @@ Pillow
 qrcode
 numpy
 opencv-python
-
+xlrd

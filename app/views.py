@@ -47,3 +47,9 @@ def about(request):
         }
     )
 
+def mobile_detail(request):
+    return render(
+        request,
+        "app/m_detail.html"
+    )
+

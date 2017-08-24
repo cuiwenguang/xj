@@ -1,395 +1,414 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>人员信息</title>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>人员信息</title>
+  {% load staticfiles %}
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-    <style>
-     .content-block{padding: 0px}
-        .ID_photo{text-align: center}
-   </style>
-  </head>
-  <body>
-    <div class="page-group">
-        <div class="page page-current">
-        <div class="content">
-          <div class="buttons-tab">
-              <a href="#tab1" class="tab-link active button">户主</a>
-              <a href="#tab2" class="tab-link button">亲属</a>
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+  <style>
+    .content-block {
+      padding: 0px;
+      margin: 0px;
+    }
 
-          </div>
-          <div class="content-block" >
-            <div class="tabs" >
-              <div id="tab1" class="tab active" >
-                <div class="content-block" >
-                  <div class="list-block" >
-                   <ul >
-                        <li>
-                    <div class="item-content">
-                      <div class="ID_photo">
-                       <img src="" width="30px" height="30px">
-                      </div>
-                    </div>
-                  </li>
-                  <!-- Text inputs -->
-                  <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">姓名</div>
-                        <div class="item-input">
-                          {{ family_master.name }}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">性别</div>
-                        <div class="item-input">
-                          {{ family_master.gender }}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+    .ID_photo {
+      text-align: center;
+    }
+    .photo{
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+    }
+  </style>
+</head>
 
-                  <!-- Select -->
-                  <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">民族</div>
-                        <div class="item-input">
-                          {{ family_master.nation }}
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <div class="content">
+        <div class="buttons-tab">
+          <a href="#tab1" class="tab-link active button">户主</a>
+          <a href="#tab2" class="tab-link button">亲属</a>
+
+        </div>
+        <div class="content-block">
+          <div class="tabs">
+            <div id="tab1" class="tab active">
+              <div class="content-block">
+                <div class="list-block" style="margin: 0px">
+                  <ul>
+                    <!-- Text inputs -->
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">
+                            <img class="photo" src="{%static 'app/images/timg.jpg'%}" />
+                          </div>
+                          <div class="item-input">
+                            {{ family_master.name }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">籍贯</div>
-                        <div class="item-input">
-                          {{ family_master.native_place }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">性别</div>
+                          <div class="item-input">
+                            {{ family_master.gender }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">出生</div>
-                        <div class="item-input">
-                         {{ family_master.birth_date }}
+                    </li>
+
+                    <!-- Select -->
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">民族</div>
+                          <div class="item-input">
+                            {{ family_master.nation }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">身份证号</div>
-                        <div class="item-input">
-                          {{ family_master.ID_number }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">籍贯</div>
+                          <div class="item-input">
+                            {{ family_master.native_place }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">身份证地址</div>
-                        <div class="item-input">
-                          {{ family_master.ID_address }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">出生</div>
+                          <div class="item-input">
+                            {{ family_master.birth_date }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">联系电话</div>
-                        <div class="item-input">
-                          {{ family_master.phone_number }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">身份证号</div>
+                          <div class="item-input">
+                            {{ family_master.ID_number }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">登记时间</div>
-                        <div class="item-input">
-                          {{ family_master.note }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">身份证地址</div>
+                          <div class="item-input">
+                            {{ family_master.ID_address }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">政治面貌</div>
-                        <div class="item-input">
-                         {{ family_master.political_face }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">联系电话</div>
+                          <div class="item-input">
+                            {{ family_master.phone_number }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">文化程度</div>
-                        <div class="item-input">
-                          {{ family_master.educational_level }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">登记时间</div>
+                          <div class="item-input">
+                            {{ family_master.note }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">婚姻情况</div>
-                        <div class="item-input">
-                          {{ family_master.marriage }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">政治面貌</div>
+                          <div class="item-input">
+                            {{ family_master.political_face }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">工作性质</div>
-                        <div class="item-input">
-                          {{ family_master.work_desc }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">文化程度</div>
+                          <div class="item-input">
+                            {{ family_master.educational_level }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">工作地址</div>
-                        <div class="item-input">
-                          {{ family_master.work_address }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">婚姻情况</div>
+                          <div class="item-input">
+                            {{ family_master.marriage }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">住房情况</div>
-                        <div class="item-input">
-                          {{ family_master.own_house }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">工作性质</div>
+                          <div class="item-input">
+                            {{ family_master.work_desc }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">现住地址</div>
-                        <div class="item-input">
-                          {{ family_master.present_address }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">工作地址</div>
+                          <div class="item-input">
+                            {{ family_master.work_address }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">年收入</div>
-                        <div class="item-input">
-                          {{ family_master.annual_earnings }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">住房情况</div>
+                          <div class="item-input">
+                            {{ family_master.own_house }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">有无低保</div>
-                        <div class="item-input">
-                          {{ family_master.is_minimum_security }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">现住地址</div>
+                          <div class="item-input">
+                            {{ family_master.present_address }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">有无医保</div>
-                        <div class="item-input">
-                          {{ family_master.is_medical_security }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">年收入</div>
+                          <div class="item-input">
+                            {{ family_master.annual_earnings }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">兵团/地方</div>
-                        <div class="item-input">
-                          {{ family_master.is_corps }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">有无低保</div>
+                          <div class="item-input">
+                            {{ family_master.is_minimum_security }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">带头人</div>
-                        <div class="item-input">
-                          {{ family_master.is_leader }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">有无医保</div>
+                          <div class="item-input">
+                            {{ family_master.is_medical_security }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                       <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">三员</div>
-                        <div class="item-input">
-                          {{ family_master.is_three_personnel }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">兵团/地方</div>
+                          <div class="item-input">
+                            {{ family_master.is_corps }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                        <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title label">护照编号</div>
-                        <div class="item-input">
-                          {{ family_master.passport_number }}
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">带头人</div>
+                          <div class="item-input">
+                            {{ family_master.is_leader }}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
-                  </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">三员</div>
+                          <div class="item-input">
+                            {{ family_master.is_three_personnel }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">护照编号</div>
+                          <div class="item-input">
+                            {{ family_master.passport_number }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div id="tab2" class="tab">
-                <div class="content-block">
-                    {% for member in family_members %}
-                        <div class="card">
-                        <div class="card-header">{{ member.family_relation }}</div>
-                        <div class="card-content">
-                          <div class="card-content-inner">
-
-                              <div class="list-block">
-                                   <ul>
-                                  <!-- Text inputs -->
-                                  <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">姓名</div>
-                                        <div class="item-input">
-                                          {{ member.name }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-
-
-                                  <!-- Select -->
-                                  <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">民族</div>
-                                        <div class="item-input">
-                                          {{ member.nation }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                       <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">身份证号</div>
-                                        <div class="item-input">
-                                          {{ member.ID_number }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                        <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">联系电话</div>
-                                        <div class="item-input">
-                                          {{ member.phone_number }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                        <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">政治面貌</div>
-                                        <div class="item-input">
-                                         {{ member.political_face }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                        <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">文化程度</div>
-                                        <div class="item-input">
-                                          {{ member.educational_level }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                        <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">婚姻情况</div>
-                                        <div class="item-input">
-                                          {{ member.marriage }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                        <li>
-                                    <div class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">工作性质</div>
-                                        <div class="item-input">
-                                          {{ member.work_desc }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-
-                                </ul>
-                           </div>
-                      </div>
-                    </div>
-
-                  </div>
-                    {% endfor %}
-
-                </div>
-              </div>
-
             </div>
+            <div id="tab2" class="tab">
+              <div class="content-block">
+                {% for member in family_members %}
+                <div class="card">
+                  <div class="card-header">{{ member.family_relation }}</div>
+                  <div class="card-content">
+                    <div class="card-content-inner">
+
+                      <div class="list-block">
+                        <ul>
+                          <!-- Text inputs -->
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">姓名</div>
+                                <div class="item-input">
+                                  {{ member.name }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+
+
+                          <!-- Select -->
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">民族</div>
+                                <div class="item-input">
+                                  {{ member.nation }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">身份证号</div>
+                                <div class="item-input">
+                                  {{ member.ID_number }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">联系电话</div>
+                                <div class="item-input">
+                                  {{ member.phone_number }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">政治面貌</div>
+                                <div class="item-input">
+                                  {{ member.political_face }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">文化程度</div>
+                                <div class="item-input">
+                                  {{ member.educational_level }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">婚姻情况</div>
+                                <div class="item-input">
+                                  {{ member.marriage }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">工作性质</div>
+                                <div class="item-input">
+                                  {{ member.work_desc }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+
           </div>
         </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+  <script type="text/javascript">
+    var myPhotoBrowserPopup = $.photoBrowser({
+      photos : [
+          '{% static "app/images/timg.jpg" %}',
+      ],
+      type: 'popup'
+  });
+  $(document).on('click','.photo',function () {
+    myPhotoBrowserPopup.open();
+  });
+  </script>
+</body>
 
-  </body>
 </html>
