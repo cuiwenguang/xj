@@ -18,6 +18,7 @@ import app.admin
 
 urlpatterns = [
     # api url
+    url(r'^api/signup',app.api.sign_up),
     url(r'^api/signin',app.api.sign_in),
     url(r'^api/signout', app.api.sign_out),
     url(r'^api/qrcode', app.api.qrcode_generate),

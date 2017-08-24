@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login,logout
 from .qrcode import generate,analysis
 from app.models import PersonnelProfile
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
 
 @csrf_exempt
 def sign_in(request):
@@ -35,6 +36,26 @@ def sign_out(request):
         "state": 200,
         "msg": "注销完成",
     })
+
+@csrf_exempt
+def sign_up(request):
+    json_data = json.loads(request.body.decode())
+    username = json_data.get("username", "")
+    password = json_data.get("password", "")
+    email = "xj_" + username + "@admin.com"
+
+    from django.contrib.auth.models import User, Group
+    if User.objects.filter(Q(email=email) | Q(username=username)).exists():
+        return JsonResponse({
+            "state": 201,
+            "msg": "用户已存在",
+        })
+    else:
+        user = User.objects.create_user(username, email=email, password=password)
+        return JsonResponse({
+            "state": 200,
+            "msg": "注册完成",
+        })
 
 def qrcode_generate(request):
     '''测试生成二维码'''
