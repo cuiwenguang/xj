@@ -49,7 +49,7 @@
                       <div class="item-content">
                         <div class="item-inner">
                           <div class="item-title label">
-                            <img class="photo" src="{%static 'app/images/timg.jpg'%}" />
+                            <img class="photo" src="{{ family_master.ID_photo | default:'app/images/timg.jpg' }}" />
                           </div>
                           <div class="item-input">
                             {{ family_master.name }}
@@ -401,7 +401,7 @@
   <script type="text/javascript">
     var myPhotoBrowserPopup = $.photoBrowser({
       photos : [
-          '{% static "app/images/timg.jpg" %}',
+          "{{ family_master.ID_photo | default:'app/images/timg.jpg' }}",
       ],
       type: 'popup'
   });
