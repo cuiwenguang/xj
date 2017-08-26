@@ -568,5 +568,16 @@ def import_data(request):
     #update_data()
     #add_miss_data()
     #print(serializers.serialize("json",pps)) 序列化
+    import_image()
     return HttpResponse("ok")
 
+
+def import_image():
+    file = 'app/杨凌.xlsx'
+    wb = xlrd.open_workbook(filename=file)
+    wsh = wb.sheet_by_name('Sheet1')
+    a = wsh.row_values(2)
+    print(a)
+    c = 1
+    b = a[3]
+    f = 2
