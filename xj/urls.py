@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^$', app.views.home, name='home'),
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about', app.views.about, name='about'),
+    url(r'^users', app.views.user_index, name='users'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {

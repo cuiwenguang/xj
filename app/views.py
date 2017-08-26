@@ -53,3 +53,6 @@ def mobile_detail(request):
         "app/m_detail.html"
     )
 
+
+def user_index(request):
+    return render(request, 'app/userlist.html')
