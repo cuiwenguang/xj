@@ -1,5 +1,35 @@
 {% extends 'app/layout.html' %}
 
 {% block content %}
-    <p>user list</p>
+    <div style="margin-top: 10px;">
+        <button class="btn btn-primary">添加新用户</button>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>账号</th>
+                        <th>姓名</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in users %}
+                    <tr>
+                        <td>{{ u.id }}</td>
+                        <td>{{ u.username }}</td>
+                        <td>{{ u.first_name }}</td>
+                        <td>{{ u.email }}</td>
+                        <td>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

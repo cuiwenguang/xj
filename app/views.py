@@ -5,6 +5,7 @@ Definition of views.
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.template import RequestContext
+from django.contrib.auth.models import User
 from datetime import datetime
 
 
@@ -55,4 +56,11 @@ def mobile_detail(request):
 
 
 def user_index(request):
-    return render(request, 'app/userlist.html')
+    users = User.objects.all()
+    return render(
+        request,
+        'app/userlist.html',
+        {
+            "users": users
+        }
+    )
