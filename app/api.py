@@ -80,3 +80,15 @@ def qrcode_analysis(request):
         return JsonResponse({"state": 200, "msg": "完成", "data": data})
     except Exception as e:
         return HttpResponse(e)
+
+
+@csrf_exempt
+def face_recognition(request):
+    '''头像识别接口'''
+    data = {
+        "uuid": '625e9b34-865c-11e7-81a0-acbc3278f361',
+        "name": '克然木尼亚孜·阿不都拉',
+        "ID_number": '',
+        "ID_photo": ''
+    }
+    return JsonResponse(data)

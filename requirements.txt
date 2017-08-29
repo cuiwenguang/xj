@@ -3,4 +3,6 @@ Pillow
 qrcode
 numpy
 opencv-python
+dlib
+face_recognition
 xlrd
