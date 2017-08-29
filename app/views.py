@@ -1,12 +1,14 @@
 """
 Definition of views.
 """
-
+from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
+from django.http import HttpRequest,HttpResponseRedirect
 from django.template import RequestContext
 from datetime import datetime
-
+from django.contrib.auth.models import User, Group
+from django.core.urlresolvers import reverse
 
 def home(request):
     """Renders the home page."""

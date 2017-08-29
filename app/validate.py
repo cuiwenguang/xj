@@ -21,6 +21,7 @@ def detect_face(image_file):
     
     return result
 
+
 def draw_face(image_file):
     faces = detect_face(image_file)
 
