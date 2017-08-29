@@ -60,7 +60,7 @@ def sign_up(request):
 def qrcode_generate(request):
     '''测试生成二维码'''
     try:
-        pers = PersonnelProfile.objects.exclude(ID_number='').exclude(name='')[0:3]
+        pers = PersonnelProfile.objects.exclude(ID_number='').exclude(name='')
         for per in pers:
             data = {
                 "uuid": per.personnel_uuid,
