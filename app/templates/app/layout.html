@@ -19,13 +19,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">务工人员信息管理系统</a>
+                <a href="/" class="navbar-brand">Application name</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">桌面</a></li>
-                    <li><a href="{% url 'about' %}">人员信息</a></li>
-                    <li><a href="{% url 'users' %}">员工信息</a></li>
+                    <li><a href="{% url 'users' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>

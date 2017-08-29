@@ -1,3 +1,5 @@
+# -*- coding:utf8 -*-
+import os
 from app.models import *
 from django.shortcuts import HttpResponse
 import uuid
@@ -568,7 +570,8 @@ def import_data(request):
     #update_data()
     #add_miss_data()
     #print(serializers.serialize("json",pps)) 序列化
-    import_image()
+    #import_image()
+    batch_update_name()
     return HttpResponse("ok")
 
 
@@ -581,3 +584,33 @@ def import_image():
     c = 1
     b = a[3]
     f = 2
+
+class BatchRename():
+    '''
+    批量重命名文件夹中的图片文件
+    '''
+    def __init__(self):
+        self.path = 'app/xian'
+
+    def rename(self):
+        filelist = os.listdir(self.path)
+        total_num = len(filelist)
+        i = 0
+        for item in filelist:
+            if item.endswith('.jpg'):
+                name = item.split('.')[0]+'.'+item.split('.')[1]
+                try:
+                    src = os.path.join(os.path.abspath(self.path), item)
+                    per = PersonnelProfile.objects.filter(name=name).first()
+                    if per is not None:
+                        dst = os.path.join(os.path.abspath(self.path), str(per.ID_number) + '.jpg')
+                        os.rename(src, dst)
+                        print('converting %s to %s ...' % (src, dst))
+                        i = i + 1
+                except:
+                    print('error %s to %s ...' % (str(i), name))
+        print('total %d to rename & converted %d jpgs' % (total_num, i))
+
+def batch_update_name():
+    demo = BatchRename()
+    demo.rename()

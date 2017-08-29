@@ -32,6 +32,9 @@ urlpatterns = [
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about', app.views.about, name='about'),
     url(r'^users', app.views.user_index, name='users'),
+    url(r'^user/add', app.views.user_add, name='user_add'),
+    url(r'^user/save', app.views.user_save, name='user_save'),
+    url(r'^user/delete/(?P<id>\d+)', app.views.user_delete, name='user_delete'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {
