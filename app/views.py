@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
-
+from django.contrib.auth.models import User, Group
 
 def home(request):
     """Renders the home page."""
@@ -53,6 +53,14 @@ def mobile_detail(request):
         "app/m_detail.html"
     )
 
-
 def user_index(request):
+    users = User.objects.all().exclude(username='admin')
+    context = {'users': users}
+    return render(request, 'app/userlist.html', context)
+
+def user_add(request):
+    return render(request, 'app/useradd.html')
+
+def user_save(request):
+
     return render(request, 'app/userlist.html')
