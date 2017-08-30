@@ -9,6 +9,7 @@ from django.template import RequestContext
 from datetime import datetime
 from django.contrib.auth.models import User, Group
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     """Renders the home page."""
@@ -55,6 +56,7 @@ def mobile_detail(request):
         "app/m_detail.html"
     )
 
+@login_required(login_url="/login/")
 def user_index(request):
     users = User.objects.all().exclude(username='admin')
     context = {'users': users}
