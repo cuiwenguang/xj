@@ -1,6 +1,4 @@
-"""
-Definition of views.
-"""
+# -*- coding:utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.shortcuts import render, redirect
