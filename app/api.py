@@ -6,6 +6,8 @@ from .qrcode import generate,analysis
 from app.models import PersonnelProfile
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
+from xj.settings import FACE_CLASSIFIER
+from .validate import face_rec
 
 @csrf_exempt
 def sign_in(request):
@@ -85,10 +87,29 @@ def qrcode_analysis(request):
 @csrf_exempt
 def face_recognition(request):
     '''头像识别接口'''
-    data = {
-        "uuid": '625e9b34-865c-11e7-81a0-acbc3278f361',
-        "name": '克然木尼亚孜·阿不都拉',
-        "ID_number": '',
-        "ID_photo": ''
-    }
-    return JsonResponse(data)
+
+    if request.method == 'POST':
+        img = request.FILES.get('imgFace')
+        idcard = face_rec(img, '/' + FACE_CLASSIFIER)
+
+        if idcard is None:
+            return JsonResponse({
+                "state": 200,
+                "data": None,
+                "msg": 'not match'
+            })
+
+        print(idcard)
+        p = PersonnelProfile.objects.get(ID_number=idcard)
+
+        return JsonResponse({
+            "state": 200,
+            "data": {
+                "uuid": p.personnel_uuid,
+                "name": p.name,
+                "ID_number": p.ID_number,
+                "ID_photo": p.ID_photo
+            }
+        })
+
+    return HttpResponse({"state":401, "data": None}, status=401)

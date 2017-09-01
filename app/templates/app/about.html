@@ -7,11 +7,11 @@
 
 <p>Use this area to provide additional information.</p>
 
-<form method="post" action="{% url 'face' %}" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" id="imgFace" name="imgFace"　/>
     <button type="submit">上传</button>
-
+    {{ idcard }}
 </form>
 
 {% endblock %}

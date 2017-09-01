@@ -26,7 +26,7 @@ SECRET_KEY = '7d33ebab-52b1-4a08-88cd-9774ec5a4bf2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,8 +126,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 # face cascade classifier 
-FACE_CLASSIFIER = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['etc', 'haarcascades', 'haarcascade_frontalface_default.xml']))
+FACE_CLASSIFIER = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['app', 'faces.json']))
 # qrcode path
 QRCODE_PATH = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static', 'qrimage']))
-
-
