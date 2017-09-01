@@ -34,8 +34,20 @@ def train_faces(file_path, json_file):
         print('not any photo encoding')
 
 
-def new_face(img, dir_path):
-    pass
+def new_face(img_path, json_file):
+    '''训练新头像'''
+    face_image = face_recognition.load_image_file(img_path)
+    faces = face_recognition.face_encodings(face_image)
+
+    if not faces:
+        print('can not find face')
+        return
+
+    with open(json_file, 'r+') as f:
+        all_face_encodings = json.load(f)
+        key = img_path.split('/')[-1]
+        all_face_encodings[key] = faces[0].tolist()
+        json.dump(all_face_encodings, f)
 
 
 def face_rec(image_file, json_file):
@@ -77,5 +89,7 @@ if __name__ == '__main__':
     path = '/Users/cui/Downloads/avatar/'
     json_file = '/Users/cui/projects/xj/app/faces.json'
     img_path = '/Users/cui/Downloads/avatar/65322219970301231X.jpg'
-    train_faces(path, json_file)
-    print face_rec(img_path, json_file)
+    my_img = '/Users/cui/Downloads/avatar/1234567887654321.jpg'
+    #train_faces(path, json_file)
+    new_face(my_img, json_file)
+    #print face_rec(img_path, json_file)

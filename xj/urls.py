@@ -24,13 +24,12 @@ urlpatterns = [
     url(r'^api/qrcode', app.api.qrcode_generate),
     url(r'^api/analysis', app.api.qrcode_analysis),
     url(r'^api/face/recognition', app.api.face_recognition),
+
     #mobile url
-    url(r'mobile/detail', app.views.mobile_detail, name="mobile_detail"),
+    url(r'^personnel/detail/(?P<pid>.+)$', app.personnel.get_detail, name='get_detail'),
 
     # web url
     url(r'^$', app.views.home, name='home'),
-    url(r'^contact$', app.views.contact, name='contact'),
-    url(r'^about', app.views.about, name='about'),
     url(r'^users', app.views.user_index, name='users'),
     url(r'^user/add', app.views.user_add, name='user_add'),
     url(r'^user/save', app.views.user_save, name='user_save'),
@@ -53,7 +52,6 @@ urlpatterns = [
             'next_page': '/',
         },
         name='logout'),
-    url(r'^personnel/detail/(?P<pid>.+)$', app.personnel.get_detail, name='get_detail'),
     url(r'^data/import', app.admin.import_data, name='import_data'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
