@@ -2,6 +2,7 @@
 import json
 import qrcode
 import os
+import base64
 
 def generate(data):
     '''生成二维码的方法'''
@@ -20,8 +21,8 @@ def generate(data):
             border=4
         )
         content = json.dumps(data)
-        content = content.encode("utf-8")
-        qr.add_data(content)
+        content64 = base64.b64encode(content)
+        qr.add_data(content64)
         qr.make(fit=True)
         img = qr.make_image()
         img.save(images_path + file_name)
