@@ -38,5 +38,6 @@ def get_detail(request, pid):
                                        "work_desc": fper.work_desc,
                                        "family_relation": family.family_relation})
 
-    context = {'family_master': family_master, 'family_members': family_members}
+    family_migration = PersonnelMigration.objects.filter(personnel_uuid=family_master.personnel_uuid)
+    context = {'family_master': family_master, 'family_members': family_members, 'family_migration': family_migration}
     return render(request, 'app/personneldetail.html', context)

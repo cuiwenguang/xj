@@ -129,16 +129,7 @@
                         </div>
                       </div>
                     </li>
-                    <li>
-                      <div class="item-content">
-                        <div class="item-inner">
-                          <div class="item-title label">登记时间</div>
-                          <div class="item-input">
-                            {{ family_master.note }}
-                          </div>
-                        </div>
-                      </div>
-                    </li>
+
                     <li>
                       <div class="item-content">
                         <div class="item-inner">
@@ -165,6 +156,36 @@
                           <div class="item-title label">婚姻情况</div>
                           <div class="item-input">
                             {{ family_master.marriage }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                      <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">家庭人口</div>
+                          <div class="item-input">
+                            {{ family_master.family_members }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                      <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">经济来源</div>
+                          <div class="item-input">
+                            {{ family_master.work_source }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">年收入</div>
+                          <div class="item-input">
+                            {{ family_master.annual_earnings }}
                           </div>
                         </div>
                       </div>
@@ -212,9 +233,9 @@
                     <li>
                       <div class="item-content">
                         <div class="item-inner">
-                          <div class="item-title label">年收入</div>
+                          <div class="item-title label">健康状况</div>
                           <div class="item-input">
-                            {{ family_master.annual_earnings }}
+                            {{ family_master.health }}
                           </div>
                         </div>
                       </div>
@@ -275,6 +296,36 @@
                           <div class="item-title label">护照编号</div>
                           <div class="item-input">
                             {{ family_master.passport_number }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                      <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">录入时间</div>
+                          <div class="item-input">
+                            {{ family_master.note }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                      <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">录入地点</div>
+                          <div class="item-input">
+                            {{ family_master.input_location }}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                      <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">录入人</div>
+                          <div class="item-input">
+                            {{ family_master.input_user_name }}
                           </div>
                         </div>
                       </div>
@@ -377,7 +428,28 @@
                               </div>
                             </div>
                           </li>
-
+                          {% for migration in family_migration %}
+                              <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">流出地/时间</div>
+                                <div class="item-input">
+                                  {{ migration.outflow_address }}｜{{ migration.outflow_date }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                               <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">流入地/时间</div>
+                                <div class="item-input">
+                                  {{ migration.inflow_address }}｜{{ migration.inflow_date }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          {% endfor %}
                         </ul>
                       </div>
                     </div>
