@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def get_detail(request, pid):
     if request.user.id is None:
-        return HttpResponse('{"state": 401,"msg": "未授权的用户","data": None}', status=401)
+        return HttpResponse('登陆超时，请重新登陆', status=401)
 
     family_members = []
     try:
