@@ -330,6 +330,28 @@
                         </div>
                       </div>
                     </li>
+                      {% for migration in family_migration %}
+                              <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">流出地/时间</div>
+                                <div class="item-input">
+                                  {{ migration.outflow_address }}｜{{ migration.outflow_date }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                               <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title label">流入地/时间</div>
+                                <div class="item-input">
+                                  {{ migration.inflow_address }}｜{{ migration.inflow_date }}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          {% endfor %}
                   </ul>
                 </div>
               </div>
@@ -428,28 +450,7 @@
                               </div>
                             </div>
                           </li>
-                          {% for migration in family_migration %}
-                              <li>
-                            <div class="item-content">
-                              <div class="item-inner">
-                                <div class="item-title label">流出地/时间</div>
-                                <div class="item-input">
-                                  {{ migration.outflow_address }}｜{{ migration.outflow_date }}
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                               <li>
-                            <div class="item-content">
-                              <div class="item-inner">
-                                <div class="item-title label">流入地/时间</div>
-                                <div class="item-input">
-                                  {{ migration.inflow_address }}｜{{ migration.inflow_date }}
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          {% endfor %}
+
                         </ul>
                       </div>
                     </div>
