@@ -26,6 +26,7 @@
       height: 80px;
       border-radius: 40px;
     }
+      p{ padding: 0px;margin: 0px;}
   </style>
 </head>
 
@@ -52,7 +53,15 @@
                             <img class="photo" src="{{ family_master.ID_photo | default:'app/images/timg.jpg' }}" />
                           </div>
                           <div class="item-input">
-                            {{ family_master.name }}
+                              {{ family_master.name }}
+                              <p>
+                                  {% if family_master.political_face == '党员' %}
+                                      <img src="app/images/xing.png">
+                                  {% endif %}
+                                  {% if family_master.is_three_personnel == '是' %}
+                                      <img src="app/images/gezi.png">
+                                  {% endif %}
+                              </p>
                           </div>
                         </div>
                       </div>
