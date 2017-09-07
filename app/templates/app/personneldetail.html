@@ -56,10 +56,10 @@
                               {{ family_master.name }}
                               <p>
                                   {% if family_master.political_face == '党员' %}
-                                      <img src="app/images/xing.png">
+                                      <img src="{% static 'app/images/xing.png' %}">
                                   {% endif %}
                                   {% if family_master.is_three_personnel == '是' %}
-                                      <img src="app/images/gezi.png">
+                                      <img src="{% static 'app/images/gezi.png' %}">
                                   {% endif %}
                               </p>
                           </div>
