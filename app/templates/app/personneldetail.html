@@ -26,7 +26,8 @@
       height: 80px;
       border-radius: 40px;
     }
-      p{ padding: 0px;margin: 0px;}
+      p{ width:180px ; padding: 0px;margin: 0px;}
+      .jiankong{float: right}
   </style>
 </head>
 
@@ -62,7 +63,7 @@
                                       <img src="{% static 'app/images/gezi.png' %}">
                                   {% endif %}
                                    {% if family_master.is_key_monitor == '是' %}
-                                      <img src="{% static 'app/images/jingshi.png' %}">
+                                      <img class="jiankong" src="{% static 'app/images/jingshi.png' %}">
                                   {% endif %}
                               </p>
                           </div>
