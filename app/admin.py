@@ -5,6 +5,8 @@ from django.shortcuts import HttpResponse
 import uuid
 import logging
 import xlrd
+from datetime import datetime
+from xlrd import xldate_as_tuple
 
 def import_excel():
     file = 'app/xj.xls'
@@ -571,7 +573,8 @@ def import_data(request):
     #add_miss_data()
     #print(serializers.serialize("json",pps)) 序列化
     #import_image()
-    batch_update_name()
+    #batch_update_name()
+    batch_update_entry_time()
     return HttpResponse("ok")
 
 
@@ -614,3 +617,26 @@ class BatchRename():
 def batch_update_name():
     demo = BatchRename()
     demo.rename()
+
+def batch_update_entry_time():
+    file = 'app/xj.xls'
+    wb = xlrd.open_workbook(filename=file)
+    wsh = wb.sheet_by_name('Sheet1')
+    # 获取行数
+    nrows = wsh.nrows
+    i = 0
+    # 获取各行数据
+    for i in range(1, nrows):
+        row_data = wsh.row_values(i)
+        ctype = wsh.cell(i, 2).ctype
+        if ctype == 3:
+            cell = wsh.cell_value(i, 2)
+            # 转成datetime对象
+            date = datetime(*xldate_as_tuple(cell, 0))
+            cell = date.strftime('%Y年%m月%d日')
+            per = PersonnelProfile.objects.filter(name=row_data[3], ID_number=row_data[15]).first()
+            if per is not None:
+                per.note = cell  # 录入时间
+                per.save()
+                i = i+1
+    print "count=", i
