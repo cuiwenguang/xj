@@ -639,4 +639,4 @@ def batch_update_entry_time():
                 per.note = cell  # 录入时间
                 per.save()
                 i = i+1
-    print "count=", i
+    print ("count=", i)

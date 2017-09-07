@@ -3,7 +3,7 @@ import json
 import qrcode
 import os
 import base64
-import StringIO
+
 def generate(data):
     '''生成二维码的方法'''
     images_path = os.getcwd() + '/static/qrimage/'

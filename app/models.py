@@ -41,6 +41,7 @@ class PersonnelProfile(models.Model):
     is_corps = models.CharField(max_length=50, null=True, blank=True, default='')  # 是兵团／否地方
     is_leader = models.CharField(max_length=50, null=True, blank=True, default='')  # 是否带头人
     is_three_personnel = models.CharField(max_length=50, null=True, blank=True, default='')  # 是否三员
+    is_key_monitor = models.CharField(max_length=50, null=True, blank=True, default='')  # 是重点监控
 
 class Family(models.Model):
     family_master_uuid = models.CharField(max_length=500)    # 家庭户主ID＝personnel_uuid唯一标识
