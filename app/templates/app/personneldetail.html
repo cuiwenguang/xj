@@ -61,6 +61,9 @@
                                   {% if family_master.is_three_personnel == '是' %}
                                       <img src="{% static 'app/images/gezi.png' %}">
                                   {% endif %}
+                                   {% if family_master.is_key_monitor == '是' %}
+                                      <img src="{% static 'app/images/jingshi.png' %}">
+                                  {% endif %}
                               </p>
                           </div>
                         </div>
