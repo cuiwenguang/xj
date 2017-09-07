@@ -5,7 +5,7 @@ Definition of urls for xj.
 from datetime import datetime
 from django.conf.urls import url
 import django.contrib.auth.views
-
+import app.tests
 import app.forms
 import app.api
 import app.views
@@ -21,8 +21,8 @@ urlpatterns = [
     url(r'^api/signup',app.api.sign_up),
     url(r'^api/signin',app.api.sign_in),
     url(r'^api/signout', app.api.sign_out),
-    url(r'^api/qrcode', app.api.qrcode_generate),
-    url(r'^api/analysis', app.api.qrcode_analysis),
+    url(r'^api/qrcode', app.tests.qrcode_generate),
+    url(r'^api/analysis', app.tests.qrcode_analysis),
     url(r'^api/face/recognition', app.api.face_recognition),
 
     #mobile url
