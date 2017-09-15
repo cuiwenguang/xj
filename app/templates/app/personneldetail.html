@@ -72,7 +72,7 @@
                                    {% if family_master.is_key_monitor == '是' %}
                                       <img src="{% static 'app/images/key.png' %}">
                                   {% endif %}</p>
-                              <p><span class="gender">{{ family_master.gender }}</span><span class="gender">{{ family_master.nation }}</span> </p>
+                              <p class="name"><span class="gender">{{ family_master.gender }}</span><span class="gender">{{ family_master.nation }}</span> </p>
                           </td>
                       </tr>
                       <tr><td colspan="2"><p><span>身份证号：</span>{{ family_master.ID_number }}</p></td></tr>
