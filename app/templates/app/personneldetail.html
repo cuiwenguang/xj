@@ -22,12 +22,22 @@
       text-align: center;
     }
     .photo{
-      width: 80px;
-      height: 80px;
-      border-radius: 40px;
+      width: 71px;
+      height: 87px;
+
     }
-      p{ width:180px ; padding: 0px;margin: 0px;}
+      p{ width:180px ; padding: 0px;margin: 0px;white-space:nowrap; margin-left: 10px; font-size: 17px; color: #222222}
       .jiankong{float: right}
+      .tubiao{height: 30px}
+      span{font-size: 14px;  color: #B4DDE8; border:1px; background:#FFF; margin-right: 5px}
+      .gender{margin-right: 50px;font-size: 17px; color: #222222}
+      .item-content{border-color: #101010}
+      ul.none{display: none}
+      table{background-color: white; width: 100%; margin: 0;padding: 0; height: auto; margin-bottom: 4px; }
+      td{height: 40px}
+      .tou{margin-top: 15px; height: 30px}
+      .name{font-size: 22px}
+      img{width: 40px; height: 40px}
   </style>
 </head>
 
@@ -36,7 +46,7 @@
     <div class="page page-current">
       <div class="content">
         <div class="buttons-tab">
-          <a href="#tab1" class="tab-link active button">户主</a>
+          <a href="#tab1" class="tab-link active button">个人</a>
           <a href="#tab2" class="tab-link button">亲属</a>
 
         </div>
@@ -45,7 +55,99 @@
             <div id="tab1" class="tab active">
               <div class="content-block">
                 <div class="list-block" style="margin: 0px">
-                  <ul>
+                  <table>
+                      <tr>
+                          <td><img class="photo" src="{{ family_master.ID_photo | default:'app/images/timg.jpg' }}" /></td>
+                          <td><p class="name tou">{{ family_master.name }}</p>
+                              <p class="tubiao">
+                                  {% if family_master.political_face == '党员' %}
+                                      <img src="{% static 'app/images/face.png' %}">
+                                  {% endif %}
+                                  {% if family_master.is_leader == '是' %}
+                                      <img src="{% static 'app/images/leader.png' %}">
+                                  {% endif %}
+                                  {% if family_master.is_three_personnel == '是' %}
+                                      <img src="{% static 'app/images/three.png' %}">
+                                  {% endif %}
+                                   {% if family_master.is_key_monitor == '是' %}
+                                      <img src="{% static 'app/images/key.png' %}">
+                                  {% endif %}</p>
+                              <p><span class="gender">{{ family_master.gender }}</span><span class="gender">{{ family_master.nation }}</span> </p>
+                          </td>
+                      </tr>
+                      <tr><td colspan="2"><p><span>身份证号：</span>{{ family_master.ID_number }}</p></td></tr>
+                      <tr><td colspan="2"><p><span>身份证地址：</span>{{ family_master.ID_address }}</p></td></tr>
+                      <tr><td colspan="2"><p><span>籍贯：</span> {{ family_master.native_place }}</p></td></tr>
+                  </table>
+                  <table>
+                      <tr>
+                          <td colspan="2" ><p class="tou"><span>从事职业：</span>{{ family_master.work_source }}</p></td>
+                      </tr>
+                      <tr>
+                          <td><p><span>工作性质：</span>{{ family_master.work_desc }}</p></td>
+                          <td><p><span>年收入：</span>{{ family_master.annual_earnings }}</p></td>
+                      </tr>
+                      <tr>
+                          <td colspan="2"><p><span>工作地点：</span>{{ family_master.work_address }}</p></td>
+                      </tr>
+                      <tr>
+                          <td colspan="2"><p><span>现住地址：</span>{{ family_master.present_address }}</p></td>
+                      </tr>
+                      <tr>
+                          <td colspan="2"><p><span>联系电话：</span>{{ family_master.phone_number }}</p></td>
+                      </tr>
+                      <tr>
+                          <td><p><span>流出新疆时间：</span>
+
+                           {% for migration in family_migration %}
+                               {% if migration.outflow_address == '新疆' %}
+                                   {{ migration.outflow_date }}
+                               {% endif %}
+
+                          {% endfor %}
+                              </p></td>
+                          <td><p><span>家庭人口：</span>{{ family_master.family_members }}</p></td>
+                      </tr>
+                      <tr>
+                          <td colspan="2"><p><span>流入时间／地点：</span>
+                          {% for migration in family_migration %}
+                              {{ migration.inflow_date }}   {{ migration.inflow_address }}
+                          {% endfor %}</p></td>
+                      </tr>
+                  </table>
+                  <table>
+                      <tr>
+                          <td><p class="tou"><span>文化程度：</span>{{ family_master.educational_level }}</p></td>
+                          <td><p class="tou"><span>政治面貌：</span>{{ family_master.political_face }}</p></td>
+                      </tr>
+                      <tr>
+                          <td><p><span>兵团地方：</span>{{ family_master.is_corps }}</p></td>
+                          <td><p><span>婚姻状况：</span>{{ family_master.marriage }}</p></td>
+                      </tr>
+                      <tr>
+                          <td><p><span>住房情况：</span>{{ family_master.own_house }}</p></td>
+                          <td><p><span>是否享受低保：</span> {{ family_master.is_minimum_security }}</p></td>
+                      </tr>
+                      <tr>
+                          <td><p><span>健康状况：</span>{{ family_master.health }}</p></td>
+                          <td><p><span>是否参加医保：</span>{{ family_master.is_medical_security }}</p></td>
+                      </tr>
+                      <tr>
+                          <td colspan="2"><p><span>护照编号：</span>{{ family_master.passport_number }}</p></td>
+                      </tr>
+                  </table>
+                  <table>
+                      <tr>
+                          <td colspan="2"><p class="tou"><span>登记地点：</span>{{ family_master.input_location }}</p></td>
+                      </tr>
+                      <tr>
+                          <td><p><span>登记时间：</span>{{ family_master.note }}</p></td>
+                          <td><p><span>登记人：</span>{{ family_master.input_user_name }}</p>
+                          </td>
+                      </tr>
+                  </table>
+
+                  <ul class="none">
                     <!-- Text inputs -->
                     <li>
                       <div class="item-content">
@@ -54,8 +156,8 @@
                             <img class="photo" src="{{ family_master.ID_photo | default:'app/images/timg.jpg' }}" />
                           </div>
                           <div class="item-input">
-                              {{ family_master.name }}
-                              <p>
+                              <p>{{ family_master.name }}</p>
+                              <p class="tubiao">
                                   {% if family_master.political_face == '党员' %}
                                       <img src="{% static 'app/images/xing.png' %}">
                                   {% endif %}
@@ -66,9 +168,12 @@
                                       <img class="jiankong" src="{% static 'app/images/jingshi.png' %}">
                                   {% endif %}
                               </p>
+                              <p><span class="gender">{{ family_master.gender }}</span><span>{{ family_master.nation }}</span> </p>
                           </div>
+
                         </div>
                       </div>
+
                     </li>
                     <li>
                       <div class="item-content">
