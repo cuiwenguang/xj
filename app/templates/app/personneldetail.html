@@ -42,6 +42,7 @@
       .address{white-space: pre-line; width: 80%}
       .geren{position:fixed; top:0; left: 0;width: 100%}
       .kuai{margin-top: 40px}
+      span.address{font-size: 17px; color: #222222}
   </style>
 </head>
 
@@ -100,8 +101,8 @@
                           <td colspan="2"><p><span>工作地点：</span>{{ family_master.work_address }}</p></td>
                       </tr>
                       <tr>
-                          <td><p><span>现住地址：</span></p></td>
-                          <td><p class="address">{{ family_master.present_address }}</p></td>
+                          <td colspan="2"><p><span>现住地址：</span><span class="address">{{ family_master.present_address }}</span></p></td>
+
                       </tr>
                       <tr>
                           <td colspan="2"><p><span>联系电话：</span>{{ family_master.phone_number }}</p></td>
