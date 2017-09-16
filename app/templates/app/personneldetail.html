@@ -30,7 +30,8 @@
       .jiankong{float: right}
       .tubiao{height: 20px; margin-left: 180px;margin-top:15px}
       span{font-size: 14px;  color: #B4DDE8; border:1px; background:#FFF; margin-right: 5px}
-      .gender{margin-right: 50px;font-size: 17px; color: #222222}
+      .gender{margin-right: 30px;font-size: 17px; color: #222222}
+      .nation{font-size: 17px; color: #222222}
       .item-content{border-color: #101010}
       ul.none{display: none}
       table{background-color: white; width: 100%; margin: 0;padding: 0; height: auto; margin-bottom: 4px; }
@@ -75,7 +76,11 @@
                                    {% if family_master.is_key_monitor == '是' %}
                                       <img src="{% static 'app/images/key.png' %}">
                                   {% endif %}</p>
-                              <p class="name"><span class="gender">{{ family_master.gender }}</span><span class="gender">{{ master_age }}</span><span class="gender">{{ family_master.nation }}</span> </p>
+                              <p class="name">
+                                  <span class="gender">{{ family_master.gender }}</span>
+                                  <span class="gender">{{ master_age }}</span>
+                                  <span class="nation" >{{ family_master.nation }}</span>
+                              </p>
                           </td>
                       </tr>
                       <tr><td colspan="2"><p><span>身份证号：</span>{{ family_master.ID_number }}</p></td></tr>
