@@ -26,7 +26,7 @@
       height: 97px;
 
     }
-      p{ width:180px ; padding: 0px;margin: 0px;white-space:nowrap; margin-left: 10px; font-size: 17px; color: #222222}
+      p{ width:90%; padding: 0px;margin: 0px;white-space:nowrap; margin-left: 10px; font-size: 17px; color: #222222}
       .jiankong{float: right}
       .tubiao{height: 20px; margin-left: 180px;margin-top:15px}
       span{font-size: 14px;  color: #B4DDE8; border:1px; background:#FFF; margin-right: 5px}
@@ -38,6 +38,9 @@
       .tou{margin-top: 15px; height: 30px}
       .name{font-size: 22px; margin-left: 30px}
       img{width: 20px; height: 20px}
+      .address{white-space: pre-line;}
+      .geren{position:fixed; top:0; left: 0;width: 100%}
+      .kuai{margin-top: 40px}
   </style>
 </head>
 
@@ -45,12 +48,12 @@
   <div class="page-group">
     <div class="page page-current">
       <div class="content">
-        <div class="buttons-tab">
-          <a href="#tab1" class="tab-link active button">个人</a>
+        <div class="buttons-tab geren">
+          <a href="#tab1" class="tab-link active button">{{ family_master.name }}</a>
           <a href="#tab2" class="tab-link button">亲属</a>
 
         </div>
-        <div class="content-block">
+        <div class="content-block kuai">
           <div class="tabs">
             <div id="tab1" class="tab active">
               <div class="content-block">
@@ -76,7 +79,8 @@
                           </td>
                       </tr>
                       <tr><td colspan="2"><p><span>身份证号：</span>{{ family_master.ID_number }}</p></td></tr>
-                      <tr><td colspan="2"><p><span>身份证地址：</span>{{ family_master.ID_address }}</p></td></tr>
+                      <tr><td><p><span>身份证地址：</span></p></td>
+                      <td><p class="address">{{ family_master.ID_address }}</p></td></tr>
                       <tr><td colspan="2"><p><span>籍贯：</span> {{ family_master.native_place }}</p></td></tr>
                   </table>
                   <table>
