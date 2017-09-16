@@ -3,6 +3,7 @@ from app.models import *
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse, render_to_response, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+import datetime
 
 @csrf_exempt
 def get_detail(request, pid):
@@ -41,5 +42,10 @@ def get_detail(request, pid):
                                "family_relation": family.family_relation})
 
     family_migration = PersonnelMigration.objects.filter(personnel_uuid=family_master.personnel_uuid)
-    context = {'family_master': family_master, 'family_members': family_members, 'family_migration': family_migration}
+    master_age = '无'
+    if len(family_master.ID_number) > 10:
+        master_year = family_master.ID_number[6:10]
+        now_year = datetime.datetime.now().year
+        master_age = str(now_year - int(master_year)) + '岁'
+    context = {'family_master': family_master, 'family_members': family_members, 'family_migration': family_migration, 'master_age': master_age}
     return render(request, 'app/personneldetail.html', context)
