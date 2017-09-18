@@ -6,8 +6,8 @@ import base64
 
 def generate(data):
     '''生成二维码的方法'''
-    images_path = os.getcwd() + '/static/qrimage/'
-    file_name = '_'.join([data["name"], data["uuid"]]) + '.jpg'
+    images_path = os.getcwd() + '/static/qrimage/' + data['input_location'] + '/'
+    file_name = '_'.join([data["name"],data['input_location'], data['phone_number'], data["uuid"]]) + '.jpg'
     try:
         if not os.path.exists(images_path):
             os.makedirs(images_path)
