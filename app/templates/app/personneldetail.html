@@ -33,7 +33,7 @@
       .gender{margin-right: 30px;font-size: 17px; color: #222222}
       .nation{font-size: 17px; color: #222222}
       .item-content{border-color: #101010}
-      ul.none{display: none}
+      .none{display: none}
       table{background-color: white; width: 100%; margin: 0;padding: 0; height: auto; margin-bottom: 4px;display: none }
       td{height: 40px}
       .tou{margin-top: 15px; height: 30px}
@@ -179,7 +179,7 @@
                                       <img class="jiankong" src="{% static 'app/images/jingshi.png' %}">
                                   {% endif %}
                               </p>
-                              <p><span class="gender">{{ family_master.gender }}</span><span>{{ family_master.nation }}</span> </p>
+                              <p class="none"><span class="gender">{{ family_master.gender }}</span><span>{{ family_master.nation }}</span> </p>
                           </div>
 
                         </div>
